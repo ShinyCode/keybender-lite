@@ -2,13 +2,13 @@
 **Keybender Lite** takes your computer and turns it into a full-fledged MIDI controller! This is a "lite" version of [Keybender](https://github.com/ShinyCode/keybender) that only supports MIDI controller functionality, and is meant to be run from the command line. It has fewer dependencies, and should be easy to set up!
 
 ## Setup
-First, clone the repo and install the requirements. You'll need to use Python 3.6.
+First, clone the repo and install the requirements. You'll need to use Python 3.
 ```
 >> git clone https://github.com/ShinyCode/keybender-lite.git
 >> cd keybender-lite
 >> pip install -r requirements.txt
 ```
-Then, download pyHook from [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyhook) (choose the one with "36" in the name, and the one corresponding to whether you're using 32-bit or 64-bit Windows). To install pyHook, inside the repo, do:
+Then, download pyHook from [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyhook) (choose the one corresponding to your Python 3 installation, and your version of windows). To install pyHook, inside the repo, do:
 ```
 >> pip install [file you downloaded]
 ```
