@@ -1,0 +1,11 @@
+certifi==2018.11.29
+cycler==0.10.0
+kiwisolver==1.0.1
+matplotlib==3.0.0
+mido==1.2.9
+pyparsing==2.2.2
+python-dateutil==2.7.3
+python-rtmidi==1.1.2
+pywin32==224
+PyYAML==3.13
+wincertstore==0.2
