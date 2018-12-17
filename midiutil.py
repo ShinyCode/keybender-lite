@@ -13,7 +13,6 @@ NOTE_ON = 1
 NOTE_OFF = 0
 
 class MIDITrack:
-    """Insert doctstring here"""
     def __init__(self, quant=None, track=None, instr=None):
         self.quant = quant if quant is not None else 16
         self.track = track if track is not None else []
@@ -126,10 +125,8 @@ class MIDITrackPlayer:
 
     def play_click(self):
         SLEEP_INTERVAL = 60.0 / self.bpm
-        # self.outport.note_on(60, 127, self.CLICK_CHANNEL)
         self.outport.send(mido.Message('note_on', channel=self.CLICK_CHANNEL, note=60, velocity=127))
         time.sleep(SLEEP_INTERVAL / 4.0)
-        # self.outport.note_off(60, 127, self.CLICK_CHANNEL)
         self.outport.send(mido.Message('note_off', channel=self.CLICK_CHANNEL, note=60, velocity=127))
 
     def set_instr(self, channel, instr):
@@ -203,10 +200,8 @@ class MIDIThread(threading.Thread):
         self.SLEEP_INTERVAL = 60.0 / bpm / self.midi_track.quant
         self.notesOn = set()
         if instr == -1:
-            # self.outport.set_instrument(self.midi_track.instr, channel=self.channel)
             self.outport.send(mido.Message('program_change', channel=self.channel, program=midi_track.instr))
         else:
-            # self.outport.set_instrument(instr, channel=self.channel)
             self.outport.send(mido.Message('program_change', channel=self.channel, program=instr))
 
     def stop_now(self):
@@ -214,7 +209,6 @@ class MIDIThread(threading.Thread):
 
     def __turn_off_all(self):
         for note in self.notesOn:
-            # self.outport.note_off(note, self.vol, self.channel)
             self.outport.send(mido.Message('note_off', channel=self.channel, note=note, velocity=self.vol))
 
     def run(self):
@@ -225,11 +219,9 @@ class MIDIThread(threading.Thread):
             if notes is not None:
                 for (note, state) in notes:
                     if state == NOTE_ON:
-                        # self.outport.note_on(note, self.vol, self.channel)
                         self.outport.send(mido.Message('note_on', channel=self.channel, note=note, velocity=self.vol))
                         self.notesOn.add(note)
                     else:
-                        # self.outport.note_off(note, self.vol, self.channel)
                         self.outport.send(mido.Message('note_off', channel=self.channel, note=note, velocity=self.vol))
                         if note in notes:
                             self.notesOn.remove(note)
