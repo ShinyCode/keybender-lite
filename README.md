@@ -36,4 +36,4 @@ UP/DOWN: reset [base] to default value
 The controller always plays notes relative to the value of `[base]`, which is set by default to 60 (middle C).
 
 ## License
-Keybender Lite is licensed under the MIT license.
+Keybender Lite is licensed under the [MIT license](https://github.com/ShinyCode/keybender-lite/blob/master/LICENSE).
